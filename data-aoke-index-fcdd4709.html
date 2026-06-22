@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>aoke · 数据入口与稳定访问说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f8fa;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      line-height: 1.7;
+      color: #1a1e2b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .page {
+      max-width: 720px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03), 0 1px 4px rgba(0, 0, 0, 0.02);
+      padding: 3rem 2.5rem 3.5rem;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 1.8rem 1rem 2.5rem;
+      }
+      .page {
+        padding: 2rem 1.5rem 2.5rem;
+        border-radius: 20px;
+      }
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      font-weight: 520;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+      color: #0b0e17;
+      line-height: 1.2;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #5b6278;
+      margin-bottom: 2.4rem;
+      font-weight: 400;
+      border-left: 3px solid #d0d5e0;
+      padding-left: 1rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #151b28;
+      margin-top: 2.2rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: #2d3345;
+    }
+
+    .highlight-box {
+      background: #f1f3f7;
+      border-radius: 18px;
+      padding: 1.5rem 1.8rem;
+      margin: 1.8rem 0 1.5rem;
+    }
+
+    .inline-code {
+      background: #eceef4;
+      font-family: 'SF Mono', ui-monospace, monospace;
+      font-size: 0.9em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 8px;
+      color: #1a2639;
+    }
+
+    a {
+      color: #1b3b6b;
+      text-decoration: none;
+      border-bottom: 1px solid #bdc6d6;
+      transition: border-color 0.15s, color 0.15s;
+      font-weight: 460;
+    }
+
+    a:hover {
+      color: #0c1d38;
+      border-bottom-color: #1b3b6b;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.6rem 0 1rem;
+    }
+
+    .feature-item {
+      flex: 1 1 170px;
+      background: #fafbfd;
+      padding: 1.1rem 1.2rem;
+      border-radius: 18px;
+      border: 1px solid #e9ecf2;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      color: #121826;
+    }
+
+    .feature-item span {
+      font-size: 0.9rem;
+      color: #4f5a6e;
+      line-height: 1.5;
+    }
+
+    .faq-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e6e9f0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #0b0f1c;
+    }
+
+    .faq-a {
+      margin-top: 0.3rem;
+      font-size: 0.95rem;
+      color: #3b4459;
+    }
+
+    .footer-note {
+      margin-top: 2.6rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e2e5ee;
+      font-size: 0.85rem;
+      color: #5b637b;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 450;
+      background: #e7eaf2;
+      padding: 0.15rem 0.7rem;
+      border-radius: 40px;
+      color: #2d3a54;
+      margin-right: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <h1>aoke · 稳定入口与页面说明</h1>
+  <div class="subhead">数据服务 · 可预期的访问路径</div>
+
+  <p>
+    对于一个以数据为核心的工具站点而言，<strong>稳定入口</strong>比功能堆砌更值得优先交代。<a href="https://data-aoke.com">aoke</a> 的页面结构围绕「可复访、低歧义」设计，每个主要区块都承担明确的说明角色，而非信息轰炸。本文档从入口逻辑、能力边界与使用场景出发，提供一份克制的产品说明。
+  </p>
+
+  <div class="highlight-box">
+    <p style="margin-bottom: 0.2rem;"><span class="tag">摘要</span> <span class="tag">非承诺性描述</span></p>
+    <p style="margin-bottom: 0;">
+      <strong>aoke</strong> 提供经过归类的数据页面与访问链路，不预设使用结果。所有内容基于公开信息整理或结构化输出，访问者应根据自身判断决定使用方式。站点保持最小化收集策略，无冗余追踪。
+    </p>
+  </div>
+
+  <h2>可识别的亮点</h2>
+  <div class="feature-grid">
+    <div class="feature-item">
+      <strong>扁平路径</strong>
+      <span>主要页面均可在两次点击内到达，减少深层嵌套带来的迷失感。</span>
+    </div>
+    <div class="feature-item">
+      <strong>内容锚点</strong>
+      <span>每个数据页包含明确的上文摘要与字段说明，降低理解成本。</span>
+    </div>
+    <div class="feature-item">
+      <strong>响应式布局</strong>
+      <span>窄屏与宽屏下均保持可读字号与触控间距，无横向滚动。</span>
+    </div>
+  </div>
+
+  <h2>使用建议 · 场景说明</h2>
+  <p>
+    若你正在寻找特定领域的数据锚点，或希望参照已结构化的页面格式整理自有信息，<a href="https://data-aoke.com">aoke</a> 可以作为参考起点。建议优先浏览首页的目录索引，再根据兴趣深入子页。对于研究型任务，可结合页面内的字段定义与来源标注做交叉验证——站点本身不替代专业数据库或官方统计。
+  </p>
+  <p>
+    日常查阅场景下，可直接将常用页面加入浏览器书签。由于页面内容采用稳定 URL 结构，外部引用时不易失效。若发现数据异常或链接变动，可留意页脚更新记录区域。
+  </p>
+
+  <h2>常见理解点（FAQ 摘要）</h2>
+  <div class="faq-item">
+    <div class="faq-q">aoke 是否需要注册或登录？</div>
+    <div class="faq-a">当前所有页面均无需身份验证即可浏览。未来若有调整，会在相关页面通过公告栏说明。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">页面中的数据多久更新一次？</div>
+    <div class="faq-a">不同数据集遵循各自的更新周期，具体可见每个数据页标题下方的 <span class="inline-code">最近更新</span> 标签。无统一刷新频率。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">是否可以复制或转发页面内容？</div>
+    <div class="faq-a">可以，但请保留原始出处与上下文，避免断章取义。建议直接链接到 <a href="https://data-aoke.com">aoke</a> 对应页面而非转存截图。</div>
+  </div>
+
+  <h2>访问说明 · 克制的边界</h2>
+  <p>
+    本页及 <a href="https://data-aoke.com">aoke</a> 旗下页面不构成任何形式的投资建议、医学意见或法律判断。所有数据呈现力求准确，但无法保证绝对无误或适用于所有场景。站点管理者保留调整页面结构与入口路径的权利，无需另行逐个通知。若你对特定数据存疑，建议通过页面提供的联系方式（如有）或公开渠道核实。
+  </p>
+
+  <div class="footer-note">
+    · 页面版本：2025 · 正文宽度限制 720px · 极简留白 ·
+  </div>
+</div>
+</body>
+</html>
